@@ -35,6 +35,11 @@ CREATE TABLE president_st_winner (
 
 SELECT * FROM president_st_winner;
 
+CREATE TABLE presedent_total_votes (
+	state VARCHAR(255),
+	votes INT
+);
+
 SELECT pcw.state, pcw.county, pcw.candidate, 
 		pcw.candidate_votes, pr.percent_votes
 FROM president_cn_winner as pcw
