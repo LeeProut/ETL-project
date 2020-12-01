@@ -11,23 +11,23 @@ Click here to view the data management in [PostgreSQL](schemas.sql)
 
 ## Extract
 
-**Source:** https://www.kaggle.com/unanimad/us-election-2020
-**Format:** CSV
-**No. of datasets:** 11 
+- **Source:** https://www.kaggle.com/unanimad/us-election-2020
+- **Format:** CSV
+- **No. of datasets:** 11 
 
 - Using Pandas to read in CSV files to perform other following processes.
 
     * For example
 
-        # File paths
-        gov_cn_path = 'Resources/governors_county.csv'
-        gov_cand_path = 'Resources/governors_county_candidate.csv'
-        gov_ste_path = 'Resources/governors_state.csv'
+            # File paths
+            gov_cn_path = 'Resources/governors_county.csv'
+            gov_cand_path = 'Resources/governors_county_candidate.csv'
+            gov_ste_path = 'Resources/governors_state.csv'
         
-        # Read csv files
-        gov_cn_df = pd.read_csv(gov_cn_path)
-        gov_cand_df = pd.read_csv(gov_cand_path)
-        gov_ste_df = pd.read_csv(gov_ste_path)
+            # Read csv files
+            gov_cn_df = pd.read_csv(gov_cn_path)
+            gov_cand_df = pd.read_csv(gov_cand_path)
+            gov_ste_df = pd.read_csv(gov_ste_path)
         
 
 ## Transform
@@ -74,7 +74,7 @@ Click here to view the data management in [PostgreSQL](schemas.sql)
     * Election result by district: To analyze the win-lose possiblity by county
     * Election’s total votes by district: To keep the record of how many people vote compared to district poppulation
 
-Note: In limited timeframe, population data will be for further ETL process. 
+- *Note:* In limited timeframe, population data will be for further ETL process. 
 
 - Accompanied by **Jupyter Notebook** and loaded each dataframe into their respective tables in database.
 
