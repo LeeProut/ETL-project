@@ -74,7 +74,7 @@ Click here to view the data management in [PostgreSQL](schemas.sql)
     * Election result by district: To analyze the win-lose possibility by county
     * Election’s total votes by district: To keep the record of how many people vote compared to district population
 
-- Accompanied by **Jupyter Notebook** and loaded each data frame into their respective tables in the database.
+- Accompanied by **Jupyter Notebook** and loaded each data frame into their respective tables in the database. Also, checked the completion of loading process.
 
 *Note:* In a limited timeframe, population data will be for further ETL processes. 
 
