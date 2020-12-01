@@ -82,14 +82,6 @@ CREATE TABLE "house_total_votes_district" (
      )
 );
 
-CREATE TABLE "house_total_votes_state" (
-    "state" VARCHAR(255)   NOT NULL,
-    "total_votes" INT   NOT NULL,
-    CONSTRAINT "pk_house_total_votes_state" PRIMARY KEY (
-        "state"
-     )
-);
-
 CREATE TABLE "president_result_county" (
     "state" VARCHAR(255)   NOT NULL,
     "county" VARCHAR(255)   NOT NULL,
