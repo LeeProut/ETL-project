@@ -10,6 +10,14 @@ CREATE TABLE "state_county" (
      )
 );
 
+CREATE TABLE "state_district" (
+	"state" VARCHAR(255)   NOT NULL,
+    "district" VARCHAR(255)   NOT NULL, 
+	CONSTRAINT "pk_state_district" PRIMARY KEY (
+        "state","district"
+     )
+);
+
 CREATE TABLE "states" (
 	"state" VARCHAR(255)   NOT NULL,
     CONSTRAINT "pk_state" PRIMARY KEY (
@@ -177,8 +185,14 @@ REFERENCES "state_county" ("state", "county");
 ALTER TABLE "governor_total_votes_state" ADD CONSTRAINT "fk_governor_total_votes_state_state" FOREIGN KEY("state")
 REFERENCES "states" ("state");
 
-ALTER TABLE "house_total_votes_state" ADD CONSTRAINT "fk_house_total_votes_state_state" FOREIGN KEY("state")
-REFERENCES "states" ("state");
+ALTER TABLE "house_result" ADD CONSTRAINT "fk_house_result_state_district" FOREIGN KEY("state", "district")
+REFERENCES "state_district" ("state", "district");
+
+ALTER TABLE "house_total_votes_district" ADD CONSTRAINT "fk_house_total_votes_district_state_district" FOREIGN KEY("state", "district")
+REFERENCES "state_district" ("state", "district");
+
+ALTER TABLE "president_result_county" ADD CONSTRAINT "fk_president_result_county_state_county" FOREIGN KEY("state", "county")
+REFERENCES "state_county" ("state", "county");
 
 ALTER TABLE "president_result_county" ADD CONSTRAINT "fk_president_result_county_state_county" FOREIGN KEY("state", "county")
 REFERENCES "state_county" ("state", "county");
