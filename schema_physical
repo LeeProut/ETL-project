@@ -1,0 +1,119 @@
+states
+--
+state VARCHAR(255) PK
+
+state_county
+--
+state VARCHAR(255) PK FK >- states.state
+county VARCHAR(255) PK
+
+state_district
+--
+state VARCHAR(255) PK FK >- states.state
+district VARCHAR(255) PK
+
+governor_result_county
+--
+state VARCHAR(255) PK FK >- state_county.state
+county VARCHAR(255) PK FK >- state_county.county
+candidate VARCHAR(255)	
+party VARCHAR(255)	
+candidate_votes INT	
+percent_votes DECIMAL
+won BOOL	
+
+governor_result_state
+--
+state VARCHAR(255) PK FK >- states.state
+candidate VARCHAR(255)	
+candidate_votes INT	
+percent_votes DECIMAL
+
+governor_total_votes_county
+--
+state VARCHAR(255) PK FK >- state_county.state
+county VARCHAR(255) PK FK >- state_county.county
+current_votes INT
+total_votes INT
+
+governor_total_votes_state
+--
+state VARCHAR(255) PK FK >- states.state
+total_votes INT
+
+house_result
+--
+state VARCHAR(255) PK FK >- state_district.state
+district VARCHAR(255) PK FK >- state_district.district
+candidate VARCHAR(255)	
+party VARCHAR(255)	
+candidate_votes INT	
+percent_votes DECIMAL
+won BOOL	
+
+house_total_votes_district
+--
+state VARCHAR(255) PK FK >- state_district.state
+district VARCHAR(255) PK FK >- state_district.district
+current_votes INT
+total_votes INT
+percent INT
+
+president_result_county
+--
+state VARCHAR(255) PK FK >- state_county.state
+county VARCHAR(255) PK FK >- state_county.county
+candidate VARCHAR(255)	
+party VARCHAR(255)	
+candidate_votes INT	
+percent_votes DECIMAL
+won BOOL	
+
+president_result_state
+--
+state VARCHAR(255) PK FK >- states.state
+candidate VARCHAR(255)	
+candidate_votes INT	
+percent_votes DECIMAL
+
+president_total_votes_county
+--
+state VARCHAR(255) PK FK >- state_county.state
+county VARCHAR(255) PK FK >- state_county.county
+current_votes INT
+total_votes INT
+
+president_total_votes_state
+--
+state VARCHAR(255) PK FK >- states.state
+total_votes INT
+
+senate_result_county
+--
+state VARCHAR(255) PK FK >- state_county.state
+county VARCHAR(255) PK FK >- state_county.county
+candidate VARCHAR(255)	
+party VARCHAR(255)	
+candidate_votes INT	
+percent_votes DECIMAL
+won BOOL	
+
+senate_result_state
+--
+state VARCHAR(255) PK FK >- states.state
+candidate VARCHAR(255)	
+candidate_votes INT	
+percent_votes DECIMAL
+
+senate_total_votes_county
+--
+state VARCHAR(255) PK FK >- state_county.state
+county VARCHAR(255) PK FK >- state_county.county
+current_votes INT
+total_votes INT
+
+senate_total_votes_state
+--
+state VARCHAR(255) PK FK >- states.state
+total_votes INT
+
