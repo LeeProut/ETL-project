@@ -2,26 +2,27 @@
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/Vj5DcU
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
+
+CREATE TABLE "states" (
+    "state" VARCHAR(255)   NOT NULL,
+    CONSTRAINT "pk_states" PRIMARY KEY (
+        "state"
+     )
+);
+
 CREATE TABLE "state_county" (
-	"state" VARCHAR(255)   NOT NULL,
-    "county" VARCHAR(255)   NOT NULL, 
-	CONSTRAINT "pk_state_county" PRIMARY KEY (
+    "state" VARCHAR(255)   NOT NULL,
+    "county" VARCHAR(255)   NOT NULL,
+    CONSTRAINT "pk_state_county" PRIMARY KEY (
         "state","county"
      )
 );
 
 CREATE TABLE "state_district" (
-	"state" VARCHAR(255)   NOT NULL,
-    "district" VARCHAR(255)   NOT NULL, 
-	CONSTRAINT "pk_state_district" PRIMARY KEY (
+    "state" VARCHAR(255)   NOT NULL,
+    "district" VARCHAR(255)   NOT NULL,
+    CONSTRAINT "pk_state_district" PRIMARY KEY (
         "state","district"
-     )
-);
-
-CREATE TABLE "states" (
-	"state" VARCHAR(255)   NOT NULL,
-    CONSTRAINT "pk_state" PRIMARY KEY (
-        "state"
      )
 );
 
@@ -172,6 +173,11 @@ CREATE TABLE "senate_total_votes_state" (
      )
 );
 
+ALTER TABLE "state_county" ADD CONSTRAINT "fk_state_county_state" FOREIGN KEY("state")
+REFERENCES "states" ("state");
+
+ALTER TABLE "state_district" ADD CONSTRAINT "fk_state_district_state" FOREIGN KEY("state")
+REFERENCES "states" ("state");
 
 ALTER TABLE "governor_result_county" ADD CONSTRAINT "fk_governor_result_county_state_county" FOREIGN KEY("state", "county")
 REFERENCES "state_county" ("state", "county");
@@ -190,9 +196,6 @@ REFERENCES "state_district" ("state", "district");
 
 ALTER TABLE "house_total_votes_district" ADD CONSTRAINT "fk_house_total_votes_district_state_district" FOREIGN KEY("state", "district")
 REFERENCES "state_district" ("state", "district");
-
-ALTER TABLE "president_result_county" ADD CONSTRAINT "fk_president_result_county_state_county" FOREIGN KEY("state", "county")
-REFERENCES "state_county" ("state", "county");
 
 ALTER TABLE "president_result_county" ADD CONSTRAINT "fk_president_result_county_state_county" FOREIGN KEY("state", "county")
 REFERENCES "state_county" ("state", "county");
@@ -217,3 +220,4 @@ REFERENCES "state_county" ("state", "county");
 
 ALTER TABLE "senate_total_votes_state" ADD CONSTRAINT "fk_senate_total_votes_state_state" FOREIGN KEY("state")
 REFERENCES "states" ("state");
+
