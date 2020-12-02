@@ -6,14 +6,17 @@ The ETL process will be based on 2020 election result data for major races; Gove
 
 Note: All ETL processes accompanied by Jupyter Notebook and PostgreSQL. 
 
-Click here to view the data management in [Jupyter Notebook](https://nbviewer.jupyter.org/github/LeeProut/ETL-project/blob/main/election2020.ipynb)
-Click here to view the data management in [PostgreSQL](schemas.sql)
+- Click to view data management in [Jupyter Notebook](https://nbviewer.jupyter.org/github/LeeProut/ETL-project/blob/main/election2020.ipynb)
+
+- Click to view data management in [PostgreSQL](schemas.sql)
 
 ## Extract
 
-- **Source:** https://www.kaggle.com/unanimad/us-election-2020
-- **Format:** CSV
-- **No. of datasets:** 11 
+**Source:** https://www.kaggle.com/unanimad/us-election-2020
+
+**Format:** CSV
+
+**No. of datasets:** 11 
 
 - Using Pandas to read in CSV files to perform other following processes as an example below.
 
@@ -31,11 +34,6 @@ Click here to view the data management in [PostgreSQL](schemas.sql)
 
         # View first 5 rows of dataframe
         gov_cn_df.head()
-
-<p align="center">
-    <img src="Images/viewdf_pd.png" />
-</p>
-
 
 ## Transform
 
